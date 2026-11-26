@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Últimos Trabajos 3 | PURPURA.OK</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">PURPURA.OK</a>
+    <div class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="turnos.html">Turnos</a>
+      <a href="trabajos.html" class="activo">Trabajos</a>
+      <a href="purpura.html">Purpura.ok</a>
+    </div>
+  </nav>
+
+  <div class="seccion-titulo" style="margin-top: 0;">
+    <p class="subtitulo">COLECCIÓN 3</p>
+    <h2>Últimos Trabajos 3</h2>
+  </div>
+
+  <!-- Grilla automática de 20 fotos -->
+  <section class="galeria-trabajos" id="contenedor-galeria"></section>
+
+  <!-- Botones de navegación al final -->
+  <div class="cierre-galeria">
+    <a href="trabajos.html" class="btn-volver-trabajos">← Volver a Trabajos</a>
+    <br><br>
+    <a href="turnos.html" class="btn-agendar-purpura">Agendar Turno</a>
+  </div>
+
+  <!-- Ventana emergente al hacer clic en cada foto -->
+  <div id="ventana-foto" class="modal-foto" onclick="cerrarVentana(event)">
+    <span class="cerrar-modal" onclick="cerrarVentanaForzado()">&times;</span>
+    <img id="imagen-ampliada" src="" alt="Trabajo ampliado">
+  </div>
+
+  <footer>
+    <p>© 2026 PURPURA.OK · Estudio de Manicuría. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const CARPETA_GALERIA = "img/trabajos3/";
+    const TOTAL_FOTOS = 20;
+
+    const galeria = document.getElementById("contenedor-galeria");
+    const modal = document.getElementById("ventana-foto");
+    const imgAmpliada = document.getElementById("imagen-ampliada");
+
+    for (let i = 1; i <= TOTAL_FOTOS; i++) {
+      const ruta = `${CARPETA_GALERIA}foto${i}.jpg`;
+      const tarjeta = document.createElement("div");
+      tarjeta.className = "item-galeria";
+
+      const img = document.createElement("img");
+      img.src = ruta;
+      img.alt = `Trabajo ${i}`;
+      img.loading = "lazy";
+
+      img.onerror = () => tarjeta.remove();
+
+      img.onclick = () => {
+        imgAmpliada.src = ruta;
+        modal.style.display = "flex";
+      };
+
+      tarjeta.appendChild(img);
+      galeria.appendChild(tarjeta);
+    }
+
+    function cerrarVentana(evento) {
+      if (evento.target === modal) modal.style.display = "none";
+    }
+    function cerrarVentanaForzado() {
+      modal.style.display = "none";
+    }
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") modal.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>

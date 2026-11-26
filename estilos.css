@@ -1,0 +1,1497 @@
+/* Reset básico y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #faf8f5;
+  color: #1c1c1c;
+  line-height: 1.6;
+}
+
+/* Barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 5%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eae6df;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-decoration: none;
+  color: #1c1c1c;
+}
+
+.menu a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #555555;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.menu a:hover {
+  color: #000000;
+}
+
+/* 1. Imagen de portada limpia en flujo normal (los videos no la tapan) */
+.hero {
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+  display: block;
+}
+
+.hero-fondo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s ease;
+}
+
+.hero:hover .hero-fondo {
+  transform: scale(1.06);
+}
+
+/* Asegura que la página nunca tenga espacios blancos en los bordes */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Contenedor de las dos franjas de lado a lado */
+.seccion-titulo {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Fuerza a que toque los bordes extremos de lado a lado */
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Frase 1: Franja púrpura más alta (arriba y abajo) */
+.seccion-titulo .subtitulo {
+  display: block;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background-color: #5b2c6f;
+  color: #ffffff;
+  padding: 26px 20px;          /* Más ancho en dirección arriba-abajo */
+  margin: 0;
+}
+
+/* Frase 2: Franja lila más alta (arriba y abajo) */
+.seccion-titulo h2 {
+  display: block;
+  width: 100%;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 36px;
+  background-color: #f3e8ff;
+  color: #3b1c54;
+  padding: 36px 20px;          /* Más ancho en dirección arriba-abajo */
+  margin: 0;
+  border-bottom: 1px solid #e2ccf8;
+}
+
+/* Sección de las 4 fotos con un margen mínimo de respiro a los costados */
+.seccion-videos {
+  clear: both;
+  padding: 45px 2% 50px;     /* Deja apenas un 2% de respiro para que no se pegue al borde */
+  background-color: #faf8f5;
+}
+
+/* Grilla de lado a lado (sin espacios blancos grandes) */
+.grilla-videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;           /* Elimina el límite que dejaba espacios blancos a los costados */
+  margin: 0;
+}
+
+.video-card video,
+.video-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;        /* Más compacto que 9 / 16 */
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 14px;
+  background-color: #eae6df;
+  border-radius: 16px;
+}
+
+
+.video-card h3 {
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* 3. Bloque de escrito y botón ubicados debajo de los videos */
+.hero-contenido-abajo {
+  text-align: center;
+  padding: 40px 20px 70px;
+  color: #1c1c1c;
+}
+
+.hero-contenido-abajo .subtitulo {
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  color: #777777;
+}
+
+.hero-contenido-abajo h1 {
+  font-size: 38px;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+/* Botones (Enlaces con estilo de botón) */
+.btn-principal {
+  display: inline-block;
+  padding: 15px 36px;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.btn-principal:hover {
+  background-color: #444444;
+}
+
+.btn-secundario {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 24px;
+  border: 1px solid #1c1c1c;
+  color: #1c1c1c;
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
+}
+
+.btn-secundario:hover {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+/* Estilos para las pantallas internas (Semipermanente, Esculpidas, Nail Art, Kapping) */
+.pagina-header {
+  text-align: center;
+  padding: 60px 5% 30px;
+}
+
+.pagina-header h1 {
+  font-weight: 300;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.grilla-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 30px 5% 80px;
+}
+
+.producto {
+  text-align: center;
+}
+
+.producto img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.producto h3 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.precio {
+  color: #666666;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #eae6df;
+  font-size: 12px;
+  color: #777777;
+}
+
+/* Adaptación para tablets y celulares */
+@media (max-width: 900px) {
+  .grilla-videos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 14px 4%;
+    gap: 12px;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 16px;
+    width: 100%;
+  }
+
+  .menu a {
+    margin-left: 0;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Sección foto de trabajos recientes + texto al costado */
+.seccion-inspiracion {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Mitad foto, mitad texto al costado */
+  align-items: center;
+  gap: 50px;
+  padding: 50px 5% 70px;
+  background-color: #faf8f5;
+}
+
+.inspiracion-imagen img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.inspiracion-texto {
+  text-align: left;
+  padding: 20px;
+}
+
+.inspiracion-texto h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #5b2c6f;              /* Mismo púrpura profundo de arriba */
+  margin-bottom: 12px;
+}
+
+.inspiracion-texto p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 28px;
+  color: #3b1c54;
+}
+
+/* Pantalla Servicios a ancho completo (sin espacios grandes a los costados) */
+.lista-servicios-intercalados {
+  width: 100%;
+  max-width: 100%;          /* Elimina el límite que dejaba espacios blancos a los costados */
+  margin: 0;
+  padding: 50px 2% 80px;    /* Deja apenas un borde mínimo de 2% para que no se pegue al vidrio */
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.servicio-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Invierte el orden en la segunda fila (foto a la derecha, texto a la izquierda) */
+.servicio-fila.fila-invertida .servicio-foto {
+  order: 2;
+}
+
+.servicio-fila.fila-invertida .servicio-detalle {
+  order: 1;
+}
+
+/* Imágenes cuadradas (1:1) en la pantalla Servicios */
+.servicio-foto img {
+  width: 100%;
+  aspect-ratio: 1 / 1;        /* Mantiene la forma cuadrada exacta en cualquier pantalla */
+  height: auto;
+  object-fit: cover;          /* Recorta lo sobrante sin deformar la foto de las manos */
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 10px 25px rgba(91, 44, 111, 0.08);
+}
+
+
+/* Va exactamente aquí debajo */
+.foto-clara {
+  filter: brightness(1.18) contrast(1.03);
+}
+/* Título de cada servicio (ej. Esmaltado Semipermanente) */
+.servicio-detalle h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 30px;             /* Subido de 26px a 30px */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5b2c6f;
+  margin-bottom: 12px;
+}
+
+/* Subtítulo en cursiva (ej. Color y brillo impecable por semanas.) */
+.servicio-destacado {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 28px;             /* Subido de 25px a 28px */
+  color: #3b1c54;
+  margin-bottom: 16px;
+}
+
+/* Párrafo descriptivo */
+.servicio-descripcion {
+  font-size: 17px;             /* Subido de 15px a 17px */
+  color: #444444;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* Viñetas de Duración e Ideal para */
+.servicio-lista li {
+  font-size: 16px;             /* Subido de 14px a 16px */
+  color: #333333;
+  margin-bottom: 10px;
+  padding-left: 18px;
+  position: relative;
+}
+
+
+.servicio-lista li::before {
+  content: "•";
+  color: #5b2c6f;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Adaptación para celulares en Servicios */
+@media (max-width: 850px) {
+  .servicio-fila {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* En celular siempre muestra primero la foto y después el texto */
+  .servicio-fila.fila-invertida .servicio-foto {
+    order: 1;
+  }
+
+  .servicio-fila.fila-invertida .servicio-detalle {
+    order: 2;
+  }
+
+  .servicio-foto img {
+    height: 360px;
+  }
+}
+
+@media (max-width: 500px) {
+  .grilla-videos {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    height: 45vh;
+  }
+}
+ /* 1. INSPIRACION RECIENTE / lo mas nuevo (aún más grande) */
+.btn-titulo-inspiracion {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 42px;             /* Más grande y con presencia */
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #5b2c6f;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-titulo-inspiracion:hover {
+  color: #3b1c54;
+  transform: translateX(4px);
+}
+
+.borde-texto .subtitulo-italica {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 38px;             /* Más grande haciendo juego con el título */
+  color: #3b1c54;
+  margin: 0;
+}
+
+/* 2. Bloque CUIDADO & ESTILO / Tus manos hablan de vos / Explorar Servicios (mismo estilo visual) */
+.borde-texto .subtitulo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 32px;             /* Mismo estilo de título púrpura en mayúsculas */
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #5b2c6f;
+  margin-bottom: 14px;
+}
+
+.borde-texto h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;          /* Misma cursiva editorial que "lo mas nuevo" */
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.3;
+  color: #3b1c54;
+  margin-bottom: 24px;
+}
+
+
+/* Botón "Explorar Servicios" idéntico a INSPIRACION RECIENTE */
+.borde-texto .btn-principal {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 42px;             /* Mismo tamaño grande que INSPIRACION RECIENTE */
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #5b2c6f;              /* Mismo púrpura profundo sin fondo */
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.borde-texto .btn-principal:hover {
+  background: none;
+  color: #3b1c54;
+  transform: translateX(4px);
+}
+
+
+
+/* Grilla de hasta 50 fotos en trabajos.html */
+.galeria-trabajos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  padding: 50px 5% 80px;
+  background-color: #faf8f5;
+}
+
+.item-galeria {
+  overflow: hidden;
+  border-radius: 14px;
+  aspect-ratio: 3 / 4;
+  background-color: #f3e8ff;
+  cursor: pointer;
+}
+
+.item-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.item-galeria:hover img {
+  transform: scale(1.05);
+}
+
+/* Ventana emergente (Modal) al hacer clic en una foto */
+.modal-foto {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 10, 30, 0.88);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-foto img {
+  max-width: 90%;
+  max-height: 88vh;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 24px;
+  right: 36px;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cerrar-modal:hover {
+  color: #e2ccf8;
+}
+
+/* Recuadro guía arriba del botón Agendar Turno en Servicios */
+.guia-eleccion {
+  max-width: 680px;
+  margin: 0 auto 38px;
+  padding: 32px 30px;
+  background-color: #f3e8ff;
+  border: 1px solid #e2ccf8;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.guia-eleccion h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  color: #3b1c54;
+  margin-bottom: 18px;
+}
+
+.guia-eleccion ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.guia-eleccion li {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  color: #2c153d;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.guia-eleccion li:last-child {
+  margin-bottom: 0;
+}
+
+.guia-eleccion li::before {
+  content: "•";
+  color: #5b2c6f;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.guia-eleccion strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #5b2c6f;
+}
+
+/* Contenedor y botón Agendar Turno al final de trabajos.html */
+.cierre-galeria {
+  text-align: center;
+  padding: 10px 20px 80px;
+  background-color: #faf8f5;
+}
+
+/* Botón Agendar Turno sin cajón ni fondo, solo letras al estilo de INSPIRACION RECIENTE */
+.btn-agendar-purpura {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #5b2c6f;              /* Solo letras en púrpura profundo, sin fondo ni borde */
+  background: none;
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-agendar-purpura:hover {
+  color: #3b1c54;              /* Se oscurece sutilmente al pasar el mouse */
+  transform: translateY(-2px); /* Se eleva apenas 2px para indicar que es clickeable */
+}
+
+/* Pantalla Turnos: Fondo blanco con detalles en púrpura */
+.contenedor-turnos {
+  padding: 50px 5% 80px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.tarjeta-turnos {
+  width: 100%;
+  max-width: 620px;
+  background-color: #ffffff;
+  border: 1px solid #e2ccf8;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 12px 35px rgba(91, 44, 111, 0.08);
+}
+
+.campo-grupo {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.campo-grupo label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #5b2c6f;
+  margin-bottom: 8px;
+}
+
+.campo-grupo input,
+.campo-grupo select,
+.campo-grupo textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  color: #1c1c1c;
+  background-color: #fdfbff;
+  border: 1px solid #d5b8f2;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo-grupo input:focus,
+.campo-grupo select:focus,
+.campo-grupo textarea:focus {
+  border-color: #5b2c6f;
+  box-shadow: 0 0 0 3px rgba(91, 44, 111, 0.12);
+}
+
+.fila-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.btn-whatsapp-turno {
+  width: 100%;
+  padding: 16px 24px;
+  background-color: #5b2c6f;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp-turno:hover {
+  background-color: #3b1c54;
+  transform: translateY(-2px);
+}
+
+/* Botones interactivos de horarios en la Agenda Digital */
+.texto-ayuda {
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 10px;
+}
+
+.grilla-horas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-hora {
+  padding: 12px 10px;
+  background-color: #ffffff;
+  border: 1.5px solid #5b2c6f;
+  color: #5b2c6f;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hora:hover:not(:disabled) {
+  background-color: #f3e8ff;
+}
+
+.btn-hora.seleccionado {
+  background-color: #5b2c6f;
+  color: #ffffff;
+}
+
+.btn-hora.ocupado {
+  background-color: #f2f2f2;
+  border-color: #dddddd;
+  color: #aaaaaa;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.alerta-turno {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.alerta-turno.exito {
+  background-color: #f3e8ff;
+  color: #3b1c54;
+  border: 1px solid #d5b8f2;
+}
+
+.alerta-turno.error {
+  background-color: #ffeaea;
+  color: #8a1f1f;
+  border: 1px solid #f5c2c2;
+}
+
+@media (max-width: 600px) {
+  .fila-doble {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .tarjeta-turnos {
+    padding: 28px 20px;
+  }
+}
+
+/* Título pequeño arriba de la primera portada en Purpura.ok */
+.titulo-recorrido {
+  width: 100%;
+  background-color: #faf8f5;
+  padding: 36px 5% 16px;
+  text-align: left;
+}
+
+.titulo-recorrido p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5b2c6f;
+  margin: 0;
+}
+
+/* 1. Video + Texto con aire a los costados (el video ya no queda pegado al borde) */
+.purpura-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: 0;
+  padding: 10px 5% 50px;       /* Crea un margen limpio a los costados y abajo */
+  gap: 50px;
+  background-color: #faf8f5;
+  align-items: center;
+}
+
+.purpura-video-contenedor {
+  width: 100%;
+  height: 75vh;
+  border-radius: 18px;         /* Bordes redondeados haciendo juego con el resto de la web */
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(91, 44, 111, 0.10);
+}
+
+.purpura-video-contenedor video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+
+.purpura-texto-contenedor {
+  padding: 50px 8%;
+  text-align: left;
+}
+
+/* 1. Etiqueta superior "2024" -> Letra de INSPIRACION RECIENTE (Montserrat) */
+.etiqueta-anio {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #5b2c6f;              /* Mismo púrpura limpio sin fondo */
+  background: none;
+  padding: 0;
+  margin-bottom: 18px;
+}
+
+/* Mensaje emotivo de 2024/2025 más chico y delicado */
+.mensaje-emotivo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;             /* Achicado (antes estaba en 29px) */
+  line-height: 1.5;
+  color: #3b1c54;
+  margin-bottom: 18px;
+}
+
+/* 2. Sección de Redes Sociales separada del video de arriba */
+.seccion-redes {
+  width: 100%;
+  margin-top: 60px;            /* Separa claramente esta sección del video de arriba */
+  text-align: center;
+}
+
+/* Fondo 1: Franja exclusiva para "no olvides seguirnos en redes sociales:" */
+.redes-titulo-franja {
+  width: 100%;
+  background-color: #5b2c6f;   /* Púrpura profundo */
+  padding: 28px 20px;
+}
+
+.redes-titulo-franja h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #ffffff;              /* Letras blancas para alto contraste */
+  margin: 0;
+}
+
+/* Fondo 2: Franja exclusiva para los botones de Facebook e Instagram */
+.redes-botones-franja {
+  width: 100%;
+  background-color: #f3e8ff;   /* Lila suave distinto al fondo de arriba */
+  padding: 40px 20px;
+  border-bottom: 1px solid #e2ccf8;
+}
+
+.botones-redes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-red {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  color: #5b2c6f;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-red:hover {
+  color: #3b1c54;
+  transform: translateY(-2px);
+}
+
+/* 3. Escrito 105 seguidores + Último video vertical 720x1280 con audio */
+.seccion-seguidores {
+  text-align: center;
+  padding: 70px 5% 80px;
+  background-color: #ffffff;
+}
+
+.texto-seguidores {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: #3b1c54;
+  max-width: 720px;
+  margin: 0 auto 30px;
+  line-height: 1.4;
+}
+
+.video-manual-contenedor {
+  width: 100%;
+  max-width: 360px;           /* Proporción vertical exacta 720x1280 (9:16) */
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(91, 44, 111, 0.15);
+  background-color: #f3e8ff;
+}
+
+.video-manual-contenedor video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+}
+
+/* Secciones divididas alineadas exactamente con la grilla de 4 fotos (margen 2%) */
+.bloque-borde-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: 0;
+  padding: 50px 2%;             /* Mismo margen lateral del 2% que las 4 fotos de arriba */
+  gap: 50px;
+  align-items: center;
+  background-color: #faf8f5;
+}
+
+/* Invierte el orden en el segundo bloque (texto izquierda, foto derecha alineada) */
+.bloque-borde-split.bloque-invertido .borde-foto {
+  order: 2;
+}
+
+.bloque-borde-split.bloque-invertido .borde-texto {
+  order: 1;
+}
+
+/* Contenedor de foto en formato vertical alineado */
+.borde-foto {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 750px;
+  overflow: hidden;
+  border-radius: 16px;          /* Mismos bordes redondeados que las 4 fotos */
+}
+
+.borde-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+
+.borde-texto {
+  padding: 50px 8%;           /* Aire cómodo para que el texto nunca se pegue al borde */
+  text-align: left;
+}
+
+.borde-texto .subtitulo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 3.5px;
+  color: #5b2c6f;
+  margin-bottom: 12px;
+}
+
+.borde-texto h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.2;
+  color: #1c1c1c;
+  margin-bottom: 28px;
+}
+
+.borde-texto .subtitulo-italica {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 28px;
+  color: #3b1c54;
+  margin: 0;
+}
+/* Cinta animada de lado a lado entre las últimas dos portadas */
+.cinta-purpura-contenedor {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f3e8ff;
+  border-top: 1px solid #e2ccf8;
+  border-bottom: 1px solid #e2ccf8;
+  padding: 20px 0;
+  white-space: nowrap;
+  display: flex;
+}
+
+.cinta-purpura-pista {
+  display: inline-flex;
+  align-items: center;
+  gap: 38px;
+  padding-right: 38px;
+  animation: deslizarCinta 26s linear infinite;
+}
+
+/* 1. Moderna espaciada */
+.fuente-1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 5px;
+  color: #5b2c6f;
+}
+
+/* 2. Caligrafía manuscrita elegante */
+.fuente-2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  letter-spacing: 1px;
+  color: #3b1c54;
+}
+
+/* 3. Romana clásica de lujo */
+.fuente-3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 4px;
+  color: #6c3483;
+}
+
+/* 4. Editorial revista de moda (cursiva gruesa) */
+.fuente-4 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 26px;
+  color: #4a235a;
+}
+
+/* 5. Artística ancha y moderna */
+.fuente-5 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #5b2c6f;
+}
+
+/* 6. Estilo máquina de escribir / minimalista técnico */
+.fuente-6 {
+  font-family: 'Space Mono', monospace;
+  font-size: 17px;
+  letter-spacing: 2px;
+  color: #7d3c98;
+}
+
+/* 7. Minimalista ultra fina */
+.fuente-7 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 7px;
+  color: #3b1c54;
+}
+
+/* 8. Clásica editorial suave */
+.fuente-8 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 31px;
+  color: #5b2c6f;
+}
+
+.separador-cinta {
+  color: #a569bd;
+  font-size: 14px;
+}
+
+@keyframes deslizarCinta {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.video-manual-contenedor video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+}
+
+/* Pantalla Trabajos: Contenedor y estilo de los 3 botones de colecciones */
+.selector-galerias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 70px 5% 60px;
+  background-color: #faf8f5;
+}
+
+.btn-coleccion-trabajos {
+  display: inline-block;
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  padding: 20px 32px;
+  background-color: #ffffff;
+  border: 1.5px solid #5b2c6f;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #5b2c6f;
+  box-shadow: 0 8px 22px rgba(91, 44, 111, 0.08);
+  transition: all 0.3s ease;
+}
+
+.btn-coleccion-trabajos:hover {
+  background-color: #5b2c6f;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.btn-volver-trabajos {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #777777;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.btn-volver-trabajos:hover {
+  color: #5b2c6f;
+}
+
+
+/* Adaptación unificada para celulares y tablets */
+@media (max-width: 850px) {
+  /* Menú superior adaptado para celulares */
+  .navbar {
+    flex-direction: column;        /* Pone el logo arriba y los botones abajo */
+    padding: 14px 4%;
+    gap: 12px;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .menu {
+    display: flex !important;      /* Asegura que siempre sea visible en celulares */
+    flex-wrap: wrap;               /* Si no entran en una línea, bajan prolijos sin cortarse */
+    justify-content: center;
+    gap: 12px 16px;
+    width: 100%;
+  }
+
+  .menu a {
+    margin-left: 0 !important;     /* Quita el margen izquierdo de computadora */
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .bloque-borde-split,
+  .purpura-split {
+    grid-template-columns: 1fr;
+  }
+
+  .bloque-borde-split.bloque-invertido .borde-foto {
+    order: 1;
+  }
+
+  .bloque-borde-split.bloque-invertido .borde-texto {
+    order: 2;
+  }
+
+  .borde-texto,
+  .purpura-texto-contenedor {
+    text-align: center;
+    padding: 40px 6%;
+  }
+
+  .purpura-video-contenedor {
+    height: 55vh;
+  }
+
+  .mensaje-emotivo {
+    font-size: 19px;
+  }
+
+  .btn-titulo-inspiracion,
+    .borde-texto .btn-principal {
+    font-size: 28px;
+  }
+
+  .borde-texto .subtitulo {
+    font-size: 24px;
+  }
+
+  .borde-texto h1,
+  .borde-texto .subtitulo-italica {
+    font-size: 26px;
+  }
+}
+
+/* =========================================================
+   AJUSTES FINALES (SOBREESCRIBEN REGLAS ANTERIORES SIN BORRAR NADA)
+   ========================================================= */
+
+/* 1. Alinea las fotos de la portada con el margen del 2% de las 4 fotos */
+.bloque-borde-split {
+  padding: 50px 2% !important;
+  gap: 50px !important;
+}
+
+.borde-foto,
+.borde-foto img {
+  border-radius: 16px !important;
+}
+
+/* 2. Mantiene siempre visible y ordenado el menú de 5 botones en celulares */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column !important;
+    padding: 14px 4% !important;
+    gap: 12px !important;
+  }
+
+  .navbar .logo {
+    font-size: 20px !important;
+  }
+
+  .menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px 16px !important;
+    width: 100% !important;
+  }
+
+  .menu a {
+    margin-left: 0 !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .grilla-videos {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+/* =========================================================
+   AJUSTE VIDEO PURPURA.OK EN CELULARES (SIN BORDES Y A BUEN TAMAÑO)
+   ========================================================= */
+@media (max-width: 900px) {
+  .purpura-split {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .purpura-video-contenedor {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;   /* Se adapta 100% a la forma real del video sin bordes */
+    margin: 0 auto !important;
+  }
+
+  .purpura-video-contenedor video {
+    width: 100% !important;
+    height: auto !important;         /* Toma el alto exacto del video sin dejar franjas arriba/abajo */
+    display: block !important;
+    object-fit: cover !important;
+  }
+}
+
+/* Cuando el celular está acostado (horizontal), aprovecha el ancho de la pantalla */
+@media (max-height: 500px) and (orientation: landscape) {
+  .purpura-split {
+    grid-template-columns: 1fr 1fr !important; /* Vuelve a poner video y texto lado a lado */
+    align-items: center !important;
+  }
+
+  .purpura-video-contenedor {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* =========================================================
+   PANTALLA PRINCIPAL CON CELULAR ACOSTADO (HORIZONTAL / LANDSCAPE)
+   ========================================================= */
+@media (max-height: 550px) and (orientation: landscape) {
+  /* 1. Las 4 fotos rotativas una al lado de la otra en una sola fila */
+  .grilla-videos {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* 2. Las portadas de abajo vuelven a 2 columnas (foto por un lado y texto al lado) */
+  .bloque-borde-split {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+    padding: 30px 2% !important;
+  }
+
+  /* Mantiene el orden intercalado (foto derecha en el primer bloque, foto izquierda en el segundo) */
+  .bloque-borde-split.bloque-invertido .borde-foto {
+    order: 2 !important;
+  }
+
+  .bloque-borde-split.bloque-invertido .borde-texto {
+    order: 1 !important;
+  }
+
+  .borde-texto {
+    text-align: left !important;
+    padding: 10px 3% !important;
+  }
+
+  /* Ajusta apenas el tamaño de letra para que entre prolijo al costado de la foto */
+  .btn-titulo-inspiracion,
+  .borde-texto .btn-principal {
+    font-size: 22px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .borde-texto .subtitulo {
+    font-size: 18px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .borde-texto h1,
+  .borde-texto .subtitulo-italica {
+    font-size: 21px !important;
+  }
+}
+
+
+/* =========================================================
+   PANTALLA SERVICIOS CON CELULAR ACOSTADO (2 COLUMNAS INTERCALADAS)
+   ========================================================= */
+@media (max-height: 550px) and (orientation: landscape) {
+  .lista-servicios-intercalados {
+    gap: 35px !important;
+    padding: 35px 3% 50px !important;
+  }
+
+  /* Vuelve a mostrar cada servicio en 2 columnas lado a lado */
+  .servicio-fila {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+    align-items: center !important;
+  }
+
+  /* Mantiene el orden intercalado en el segundo servicio (Kapping Gel) */
+  .servicio-fila.fila-invertida .servicio-foto {
+    order: 2 !important;
+  }
+
+  .servicio-fila.fila-invertida .servicio-detalle {
+    order: 1 !important;
+  }
+
+  .servicio-detalle {
+    text-align: left !important;
+    padding: 0 2% !important;
+  }
+
+  /* Ajusta apenas los tamaños de texto para que entren cómodos al lado de la foto */
+  .servicio-detalle h3 {
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .servicio-destacado {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .servicio-descripcion {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .servicio-lista li {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+  }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURPURA.OK | Manicuría & Diseño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <!-- Barra de navegación superior -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">PURPURA.OK</a>
+    <div class="menu">
+      <a href="index.html" class="activo">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="turnos.html">Turnos</a>
+      <a href="trabajos.html">Trabajos</a>
+      <a href="purpura.html">Purpura.ok</a>
+    </div>
+  </nav>
+
+  <!-- 1. Imagen de portada limpia -->
+  <header class="hero">
+    <img src="img/portada.jpg" alt="Portada Estudio Manicuría" class="hero-fondo">
+  </header>
+
+  <!-- 2. Títulos uno abajo de otro con fondo de punta a punta -->
+  <div class="seccion-titulo">
+    <p class="subtitulo">NUESTROS TRABAJOS</p>
+    <h2>Inspirate con nuestros diseños en detalle</h2>
+  </div>
+
+  <!-- 3. Sección de 4 cuadros limpios (rotación aleatoria de 22 fotos locales) -->
+  <section class="seccion-videos">
+    <div class="grilla-videos">
+      <div class="video-card">
+        <img class="foto-aleatoria" src="" alt="Diseño Purpura.ok">
+      </div>
+
+      <div class="video-card">
+        <img class="foto-aleatoria" src="" alt="Diseño Purpura.ok">
+      </div>
+
+      <div class="video-card">
+        <img class="foto-aleatoria" src="" alt="Diseño Purpura.ok">
+      </div>
+
+      <div class="video-card">
+        <img class="foto-aleatoria" src="" alt="Diseño Purpura.ok">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Bloque 1 (Invertido): "INSPIRACION RECIENTE" a la izquierda + Foto vertical al borde derecho -->
+  <section class="bloque-borde-split bloque-invertido">
+    <div class="borde-foto">
+      <img src="img/img1.jpg" alt="Nuevos trabajos realizados">
+    </div>
+    <div class="borde-texto">
+      <a href="trabajos.html" class="btn-titulo-inspiracion">INSPIRACION RECIENTE</a>
+      <p class="subtitulo-italica">lo mas nuevo</p>
+    </div>
+  </section>
+
+  <!-- Cinta animada de lado a lado con 8 estilos distintos de fuente para purpura.ok -->
+  <div class="cinta-purpura-contenedor">
+    <div class="cinta-purpura-pista">
+      <!-- Primer bloque con 8 tipografías distintas -->
+      <span class="fuente-1">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-2">Purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-3">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-4">purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-5">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-6">purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-7">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-8">Purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+
+      <!-- Segundo bloque idéntico para bucle infinito sin saltos -->
+      <span class="fuente-1">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-2">Purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-3">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-4">purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-5">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-6">purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-7">PURPURA.OK</span>
+      <span class="separador-cinta">✦</span>
+      <span class="fuente-8">Purpura.ok</span>
+      <span class="separador-cinta">✦</span>
+    </div>
+  </div>
+
+  <!-- 5. Bloque 2 (Invertido): Foto vertical al borde izquierdo + "Tus manos hablan de vos" a la derecha -->
+  <section class="bloque-borde-split">
+    <div class="borde-foto">
+      <img src="img/manos-brillar.webp" alt="Tus manos hablan de vos">
+    </div>
+    <div class="borde-texto">
+      <p class="subtitulo">CUIDADO & ESTILO</p>
+      <h1>Tus manos hablan de vos, hacelas brillar</h1>
+      <a href="servicios.html" class="btn-principal">Explorar Servicios</a>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2026 PURPURA.OK · Estudio de Manicuría. Todos los derechos reservados.</p>
+  </footer>
+
+  
+    <!-- Script: rotación aleatoria de 22 fotos en ~1 segundo de forma desordenada -->
+  <script>
+    const CARPETA = "img/portada-fotos/";
+    const PREFIJO = "foto";
+    const EXTENSION = ".jpg";
+    const totalFotos = 22;
+
+    const listaFotos = [];
+    for (let i = 1; i <= totalFotos; i++) {
+      listaFotos.push(`${CARPETA}${PREFIJO}${i}${EXTENSION}`);
+    }
+
+    const cuadros = document.querySelectorAll(".foto-aleatoria");
+
+    // Genera un tiempo al azar de aproximadamente 1 segundo (entre 0.8s y 1.3s)
+    function tiempoAleatorio() {
+      return Math.floor(Math.random() * (1300 - 800 + 1)) + 800;
+    }
+
+    function elegirRutaUnica() {
+      const enUso = Array.from(cuadros).map(img => img.getAttribute("data-src"));
+      const disponibles = listaFotos.filter(ruta => !enUso.includes(ruta));
+      return disponibles[Math.floor(Math.random() * disponibles.length)];
+    }
+
+    function cambiarFotoDesordenada(cuadro, esPrimeraVez = false) {
+      clearTimeout(cuadro.temporizador);
+      const nuevaRuta = elegirRutaUnica();
+      cuadro.setAttribute("data-src", nuevaRuta);
+
+      const precarga = new Image();
+      precarga.src = nuevaRuta;
+
+      precarga.onload = () => {
+        cuadro.src = nuevaRuta;
+        programarSiguienteAleatorio(cuadro);
+      };
+
+      precarga.onerror = () => {
+        console.warn("No se encontró:", nuevaRuta);
+        if (!esPrimeraVez) programarSiguienteAleatorio(cuadro);
+      };
+    }
+
+    function programarSiguienteAleatorio(cuadro) {
+      cuadro.temporizador = setTimeout(() => {
+        cambiarFotoDesordenada(cuadro);
+      }, tiempoAleatorio());
+    }
+
+    cuadros.forEach(cuadro => {
+      cambiarFotoDesordenada(cuadro, true);
+    });
+  </script>
+
+
+</body>
+</html>

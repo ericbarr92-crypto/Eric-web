@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda Digital | PURPURA.OK</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Barra de navegación superior -->
+    <nav class="navbar">
+    <a href="index.html" class="logo">PURPURA.OK</a>
+    <div class="menu">
+      <a href="index.html" class="activo">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="turnos.html">Turnos</a>
+      <a href="trabajos.html">Trabajos</a>
+      <a href="purpura.html">Purpura.ok</a>
+    </div>
+  </nav>
+
+
+  <!-- Encabezado con franjas púrpura -->
+  <div class="seccion-titulo" style="margin-top: 0;">
+    <p class="subtitulo">AGENDA DIGITAL</p>
+    <h2>Reservá tu turno online en tiempo real</h2>
+  </div>
+
+  <!-- Contenedor principal del turnero -->
+  <section class="contenedor-turnos">
+    <form class="tarjeta-turnos" id="form-turno" onsubmit="guardarTurno(event)">
+
+      <div class="campo-grupo">
+        <label for="nombre">Tu Nombre y Apellido</label>
+        <input type="text" id="nombre" placeholder="Ej: Camila López" required>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="telefono">Tu WhatsApp (para recordatorios)</label>
+        <input type="tel" id="telefono" placeholder="Ej: 351 123 4567" required>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="servicio">Servicio deseado</label>
+        <select id="servicio" required>
+          <option value="" disabled selected>Seleccioná una opción...</option>
+          <option value="Esmaltado Semipermanente">Esmaltado Semipermanente</option>
+          <option value="Kapping Gel">Kapping Gel</option>
+          <option value="Soft Gel">Soft Gel</option>
+          <option value="Retirado + Service">Retirado + Service</option>
+          <option value="Nail Art / Diseño Personalizado">Nail Art / Diseño Personalizado</option>
+        </select>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="fecha">1. Elegí la fecha</label>
+        <input type="date" id="fecha" onchange="consultarDisponibilidad()" required>
+      </div>
+
+      <!-- Grilla interactiva de horarios disponibles -->
+      <div class="campo-grupo">
+        <label>2. Elegí un horario disponible</label>
+        <p id="estado-horarios" class="texto-ayuda">Seleccioná una fecha arriba para ver los horarios libres.</p>
+        <div id="grilla-horarios" class="grilla-horas"></div>
+        <input type="hidden" id="horario-seleccionado" required>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="notas">¿Algún detalle o diseño en mente? (Opcional)</label>
+        <textarea id="notas" rows="2" placeholder="Ej: French clásico, tonos nude, etc."></textarea>
+      </div>
+
+      <button type="submit" id="btn-confirmar" class="btn-whatsapp-turno">Confirmar Reserva</button>
+
+      <!-- Mensaje de confirmación en pantalla -->
+      <div id="mensaje-resultado" class="alerta-turno" style="display: none;"></div>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 PURPURA.OK · Estudio de Manicuría. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // PEGÁ ACÁ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT
+    const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbxnbAdKhzG8f_jyMUDSd37gecw_nAc82p60cq9OmPzcGoFR8FdKdmaXbW26F4FlbnypTg/exec";
+
+    // Horarios de atención configurables
+    const HORARIOS_ESTUDIO = ["09:00 hs", "11:00 hs", "13:30 hs", "15:30 hs", "17:30 hs", "19:00 hs"];
+
+    const inputFecha = document.getElementById("fecha");
+    const hoy = new Date().toISOString().split("T")[0];
+    inputFecha.setAttribute("min", hoy);
+
+    async function consultarDisponibilidad() {
+      const fecha = inputFecha.value;
+      const grilla = document.getElementById("grilla-horarios");
+      const estado = document.getElementById("estado-horarios");
+      const inputHorario = document.getElementById("horario-seleccionado");
+
+      inputHorario.value = "";
+      grilla.innerHTML = "";
+      estado.textContent = "Consultando horarios disponibles...";
+
+      let ocupados = [];
+      try {
+        const respuesta = await fetch(`${URL_SCRIPT}?fecha=${fecha}`);
+        const data = await respuesta.json();
+        ocupados = data.ocupados || [];
+      } catch (error) {
+        estado.textContent = "Elegí tu horario preferido:";
+      }
+
+      estado.textContent = "Tocá un horario libre para seleccionarlo:";
+
+      HORARIOS_ESTUDIO.forEach(hora => {
+        const botonHora = document.createElement("button");
+        botonHora.type = "button";
+        botonHora.textContent = hora;
+        botonHora.className = "btn-hora";
+
+        if (ocupados.includes(hora)) {
+          botonHora.disabled = true;
+          botonHora.classList.add("ocupado");
+          botonHora.title = "Horario ya reservado";
+        } else {
+          botonHora.onclick = () => {
+            document.querySelectorAll(".btn-hora").forEach(b => b.classList.remove("seleccionado"));
+            botonHora.classList.add("seleccionado");
+            inputHorario.value = hora;
+          };
+        }
+
+        grilla.appendChild(botonHora);
+      });
+    }
+
+    async function guardarTurno(evento) {
+      evento.preventDefault();
+      const horario = document.getElementById("horario-seleccionado").value;
+      const alerta = document.getElementById("mensaje-resultado");
+      const btn = document.getElementById("btn-confirmar");
+
+      if (!horario) {
+        alert("Por favor, seleccioná un horario disponible antes de confirmar.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Agendando turno...";
+      alerta.style.display = "none";
+
+      const payload = {
+        nombre: document.getElementById("nombre").value.trim(),
+        telefono: document.getElementById("telefono").value.trim(),
+        servicio: document.getElementById("servicio").value,
+        fecha: inputFecha.value,
+        horario: horario,
+        notas: document.getElementById("notas").value.trim()
+      };
+
+      try {
+        // Se envía con text/plain para evitar bloqueos CORS de Google Apps Script
+        const respuesta = await fetch(URL_SCRIPT, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        const resultado = await respuesta.json();
+
+        if (resultado.status === "ocupado") {
+          alerta.className = "alerta-turno error";
+          alerta.textContent = "Ese horario se acaba de reservar. Por favor elegí otro disponible.";
+          alerta.style.display = "block";
+          consultarDisponibilidad();
+        } else {
+          alerta.className = "alerta-turno exito";
+          alerta.innerHTML = `<strong>¡Turno agendado con éxito!</strong><br>Te esperamos el <b>${payload.fecha}</b> a las <b>${payload.horario}</b> para tu servicio de <b>${payload.servicio}</b>.`;
+          alerta.style.display = "block";
+          document.getElementById("form-turno").reset();
+          document.getElementById("grilla-horarios").innerHTML = "";
+        }
+      } catch (err) {
+        alerta.className = "alerta-turno error";
+        alerta.textContent = "Hubo un problema de conexión con la agenda. Intentá nuevamente.";
+        alerta.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Confirmar Reserva";
+      }
+    }
+  </script>
+
+</body>
+</html>
