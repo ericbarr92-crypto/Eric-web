@@ -13,7 +13,7 @@
 
   <!-- Barra de navegación superior -->
   <nav class="navbar">
-    <a href="index.html" class="logo">PURPURA.OK</a>
+    <a href="index.html" class="logo">Purpura<span class="logo-ok">.ok</span></a>
     <div class="menu">
       <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
@@ -85,6 +85,25 @@
   <footer>
     <p>© 2026 PURPURA.OK · Estudio de Manicuría. Todos los derechos reservados.</p>
   </footer>
+    <script>
+    // Repite la entrada desde izquierda y derecha cada vez que los botones entran en pantalla al subir o bajar
+    const contenedorRedes = document.querySelector(".botones-redes");
+
+    if (contenedorRedes) {
+      const observadorRedes = new IntersectionObserver((entradas) => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) {
+            contenedorRedes.classList.add("animar-redes");
+          } else {
+            contenedorRedes.classList.remove("animar-redes");
+          }
+        });
+      }, { threshold: 0.15 });
+
+      observadorRedes.observe(contenedorRedes);
+    }
+  </script>
+
 
 </body>
 </html>

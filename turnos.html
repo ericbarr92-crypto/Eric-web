@@ -13,7 +13,7 @@
 
   <!-- Barra de navegación superior -->
     <nav class="navbar">
-    <a href="index.html" class="logo">PURPURA.OK</a>
+    <a href="index.html" class="logo">Purpura<span class="logo-ok">.ok</span></a>
     <div class="menu">
       <a href="index.html" class="activo">Inicio</a>
       <a href="servicios.html">Servicios</a>
@@ -78,6 +78,14 @@
 
       <!-- Mensaje de confirmación en pantalla -->
       <div id="mensaje-resultado" class="alerta-turno" style="display: none;"></div>
+
+
+
+      <!-- Botón dinámico de WhatsApp (aparece al confirmar el turno) -->
+      <a id="btn-enviar-comprobante" href="#" target="_blank" rel="noopener noreferrer" class="btn-comprobante-wa" style="display: none;">
+        Enviar Comprobante por WhatsApp
+      </a>
+
     </form>
   </section>
 
@@ -85,9 +93,12 @@
     <p>© 2026 PURPURA.OK · Estudio de Manicuría. Todos los derechos reservados.</p>
   </footer>
 
-  <script>
-    // PEGÁ ACÁ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT
+    <script>
+    // URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT
     const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbxnbAdKhzG8f_jyMUDSd37gecw_nAc82p60cq9OmPzcGoFR8FdKdmaXbW26F4FlbnypTg/exec";
+
+    // Número de WhatsApp de la manicurista (sin + ni espacios)
+    const NUMERO_MANICURISTA = "5493513989087";
 
     // Horarios de atención configurables
     const HORARIOS_ESTUDIO = ["09:00 hs", "11:00 hs", "13:30 hs", "15:30 hs", "17:30 hs", "19:00 hs"];
@@ -139,10 +150,31 @@
       });
     }
 
+    function mostrarComprobanteWhatsApp(datosTurno) {
+      const btnComprobante = document.getElementById("btn-enviar-comprobante");
+      if (!btnComprobante) return;
+
+      const textoMensaje =
+        `¡Hola Purpura.ok! Acabo de agendar un turno desde la web:\n\n` +
+        `• *Clienta:* ${datosTurno.nombre}\n` +
+        `• *Fecha:* ${datosTurno.fecha}\n` +
+        `• *Horario:* ${datosTurno.horario}\n` +
+        `• *Servicio:* ${datosTurno.servicio}\n` +
+        (datosTurno.notas ? `• *Notas:* ${datosTurno.notas}\n` : ``) +
+        `\n¡Muchas gracias!`;
+
+      // Enlace corregido con / y $ para abrir WhatsApp con el mensaje automático
+      const urlWhatsApp = `https://wa.me{NUMERO_MANICURISTA}?text=${encodeURIComponent(textoMensaje)}`;
+
+      btnComprobante.href = urlWhatsApp;
+      btnComprobante.style.display = "block";
+    }
+
     async function guardarTurno(evento) {
       evento.preventDefault();
       const horario = document.getElementById("horario-seleccionado").value;
       const alerta = document.getElementById("mensaje-resultado");
+      const btnComprobante = document.getElementById("btn-enviar-comprobante");
       const btn = document.getElementById("btn-confirmar");
 
       if (!horario) {
@@ -153,6 +185,7 @@
       btn.disabled = true;
       btn.textContent = "Agendando turno...";
       alerta.style.display = "none";
+      if (btnComprobante) btnComprobante.style.display = "none";
 
       const payload = {
         nombre: document.getElementById("nombre").value.trim(),
@@ -164,7 +197,6 @@
       };
 
       try {
-        // Se envía con text/plain para evitar bloqueos CORS de Google Apps Script
         const respuesta = await fetch(URL_SCRIPT, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -181,6 +213,10 @@
           alerta.className = "alerta-turno exito";
           alerta.innerHTML = `<strong>¡Turno agendado con éxito!</strong><br>Te esperamos el <b>${payload.fecha}</b> a las <b>${payload.horario}</b> para tu servicio de <b>${payload.servicio}</b>.`;
           alerta.style.display = "block";
+
+          // AQUÍ SE ACTIVA EL BOTÓN DE WHATSAPP CON TODOS LOS DATOS DEL TURNO
+          mostrarComprobanteWhatsApp(payload);
+
           document.getElementById("form-turno").reset();
           document.getElementById("grilla-horarios").innerHTML = "";
         }
@@ -194,6 +230,7 @@
       }
     }
   </script>
+
 
 </body>
 </html>

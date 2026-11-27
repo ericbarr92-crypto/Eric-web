@@ -1495,3 +1495,197 @@ footer {
     margin-bottom: 6px !important;
   }
 }
+
+/* =========================================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ========================================================= */
+.btn-whatsapp-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+  z-index: 1500;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.btn-whatsapp-flotante:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.45);
+}
+
+@media (max-width: 850px) {
+  .btn-whatsapp-flotante {
+    bottom: 18px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* =========================================================
+   TIPOGRAFÍA DANIEL BOLD PARA EL LOGO PRINCIPAL (PURPURA.OK)
+   ========================================================= */
+@font-face {
+  font-family: 'Daniel Bold';
+  src: url('fuentes/danielbd.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.navbar .logo {
+  font-family: 'Daniel Bold', cursive !important;
+  font-size: 26px !important;      /* Ajuste ideal para que la letra manuscrita se lea clara */
+  letter-spacing: 2px !important;  /* Reduce el espaciado para que las letras manuscritas fluyan mejor */
+  text-transform: none !important; /* Permite respetar mayúsculas y minúsculas si querés escribir Purpura.ok */
+}
+
+@media (max-width: 900px) {
+  .navbar .logo {
+    font-size: 23px !important;
+  }
+}
+
+/* =========================================================
+   LOGO EXACTO DE LA FOTO: "Purpura" (Daniel Bold) + ".ok" (Daniel Regular)
+   ========================================================= */
+@font-face {
+  font-family: 'Daniel Bold';
+  src: url('fuentes/danielbd.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Daniel Regular';
+  src: url('fuentes/daniel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.navbar .logo {
+  font-family: 'Daniel Bold', cursive !important;
+  font-size: 28px !important;
+  letter-spacing: 1px !important;
+  text-transform: none !important;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.navbar .logo .logo-ok {
+  font-family: 'Daniel Regular', cursive !important;
+  font-size: 16px !important;
+  margin-left: 2px;
+}
+
+@media (max-width: 900px) {
+  .navbar .logo {
+    font-size: 24px !important;
+  }
+  .navbar .logo .logo-ok {
+    font-size: 14px !important;
+  }
+}
+
+/* Botón dinámico para enviar comprobante por WhatsApp en turnos.html */
+.btn-comprobante-wa {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 15px 22px;
+  margin-top: 14px;
+  background-color: #25d366;
+  color: #ffffff !important;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.28);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-comprobante-wa:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   BOTONES REDES SOCIALES (DANIEL BOLD + ENTRADA DESDE LOS BORDES)
+   ========================================================= */
+.redes-botones-franja {
+  overflow-x: hidden;
+}
+
+.botones-redes .btn-red {
+  font-family: 'Daniel Bold', cursive !important;
+  font-size: 26px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: none !important;
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease, color 0.3s ease;
+}
+
+/* El primer botón (Instagram) arranca desde el borde izquierdo de la pantalla */
+.botones-redes .btn-red:nth-child(1) {
+  transform: translateX(-50vw) !important;
+}
+
+/* El segundo botón (Facebook) arranca desde el borde derecho de la pantalla */
+.botones-redes .btn-red:nth-child(2) {
+  transform: translateX(50vw) !important;
+}
+
+/* Cuando entran en pantalla, recorren desde los bordes hasta el centro */
+.botones-redes.animar-redes .btn-red {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.botones-redes.animar-redes .btn-red:hover {
+  transform: translateY(-2px) !important;
+}
+
+@media (max-width: 900px) {
+  .botones-redes .btn-red {
+    font-size: 23px !important;
+  }
+}
+
+/* =========================================================
+   FIRMA DEL DESARROLLADOR (ERIC STUDIO WEB) EN EL FOOTER
+   ========================================================= */
+.firma-desarrollador {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666666;
+}
+
+.firma-desarrollador a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #5b2c6f;
+  text-decoration: none;
+  border-bottom: 1px solid #d5b8f2;
+  padding-bottom: 1px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.firma-desarrollador a:hover {
+  color: #3b1c54;
+  border-bottom-color: #3b1c54;
+}
