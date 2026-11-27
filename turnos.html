@@ -15,9 +15,9 @@
     <nav class="navbar">
     <a href="index.html" class="logo">Purpura<span class="logo-ok">.ok</span></a>
     <div class="menu">
-      <a href="index.html" class="activo">Inicio</a>
+      <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
-      <a href="turnos.html">Turnos</a>
+      <a href="turnos.html" class="activo">Turnos</a>
       <a href="trabajos.html">Trabajos</a>
       <a href="purpura.html">Purpura.ok</a>
     </div>
@@ -164,7 +164,7 @@
         `\n¡Muchas gracias!`;
 
       // Enlace corregido con / y $ para abrir WhatsApp con el mensaje automático
-      const urlWhatsApp = `https://wa.me{NUMERO_MANICURISTA}?text=${encodeURIComponent(textoMensaje)}`;
+      const urlWhatsApp = `https://api.whatsapp.com/send?phone=5493513989087&text=${encodeURIComponent(textoMensaje)}`;
 
       btnComprobante.href = urlWhatsApp;
       btnComprobante.style.display = "block";
